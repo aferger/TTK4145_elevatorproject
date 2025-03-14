@@ -37,6 +37,7 @@ func fsm(elevator *Elevator,
 			fmt.Printf("%+v\n", a)
 			//lock
 			elevator.Orders[a.Floor][a.Button].State = true
+			//sette lys på hallbtns?
 			//elevators[id] = elevator
 			elevator.Orders[a.Floor][a.Button].Timestamp = time.Now()
 			//unlock
@@ -83,6 +84,7 @@ func fsm(elevator *Elevator,
 			if elevator.shouldStop() {
 				elevio.SetMotorDirection(elevio.MD_Stop)
 				elevator.clearAtCurrentFloor() //timestamps are updated here
+				//slukke lys?
 				
 
 				elevator.Behavior = EB_DoorOpen
